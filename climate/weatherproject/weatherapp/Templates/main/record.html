@@ -52,7 +52,7 @@
 </head>
 <body>
     <div id='main'>
-        <a href="http://127.0.0.1:8000/"><h4>back to home page</h4></a>
+        <a href="http://127.0.0.1:8000/"><button onclick >Home</button></a>
     </div>
 
     <div id="navbar">
@@ -60,50 +60,52 @@
           <nav>
               <h1>Weather Records</h1>
           </nav>
-  
+
       </header>
   </div>
 
     <div id='main1'>
         <h1>Delete Records</h1>
-    <form method="POST">
-          {% csrf_token %}
-        <label for='id'></label>
-        <input type='number' name='id' id='id' value="{{ request.POST.id }}",placeholder="S.No">
-        <input type='submit' value='Submit'>
-    </form>
-    </div>
-    
-  
-    <table>
-        <tr>
-            <th>S.No</th>
-            <th>City</th>
-            <th>Country Code</th>
-            <th>Coordinates</th>
-            <th>Sky</th>
-            <th>Temperature</th>
-            <th>RealFeel</th>
-            <th>Pressure</th>
-            <th>Humidity</th>
-            <th>Wind speed</th>
-            <th></th>
-        </tr>
-        {% for record in record %}
-        <tr>
-            <th>{{ record.id }}</th>
-            <th>{{ record.country_name }}</th>
-            <th>{{ record.country_code }}</th>
-            <th>{{ record.coordinates }}</th>
-            <th>{{ record.description }}</th>
-            <th>{{ record.temp }}</th>
-            <th>{{ record.real_temp_feel }}</th>
-            <th>{{ record.pressure }}</th>
-            <th>{{ record.humidity }}</th>
-            <th>{{ record.wind_speed }}</th>
-          </tr>
-        {% endfor %}
-    </table>
 
+        <form method="POST">
+            {% csrf_token %}
+            <label>SNO</label>
+            <input type="number" name="sno" id="id" placeholder="sno">
+            <button type='submit'>delete</button>
+        </form>
+
+
+
+        <table id="table">
+            <tr>
+                <th>S.No</th>
+                <th>City</th>
+                <th>Country Code</th>
+                <th>Coordinates</th>
+                <th>Sky</th>
+                <th>Temperature</th>
+                <th>RealFeel</th>
+                <th>Pressure</th>
+                <th>Humidity</th>
+                <th>Wind speed</th>
+                <th></th>
+            </tr>
+            {% for record in record %}
+            <tr>
+                <th>{{ record.id }}</th>
+                <th>{{ record.country_name }}</th>
+                <th>{{ record.country_code }}</th>
+                <th>{{ record.coordinates }}</th>
+                <th>{{ record.description }}</th>
+                <th>{{ record.temp }}</th>
+                <th>{{ record.real_temp_feel }}</th>
+                <th>{{ record.pressure }}</th>
+                <th>{{ record.humidity }}</th>
+                <th>{{ record.wind_speed }}</th>
+              </tr>
+            {% endfor %}
+        </table>
+
+</div>
 </body>
 </html>

@@ -11,4 +11,4 @@ class weather_data(models.Model):
     humidity= models.CharField(max_length=255,null=False)
     wind_speed= models.CharField(max_length=255,null=False)
     description= models.CharField(max_length=255,null=False)
-    record_entry_date = models.DateTimeField(default=date.today)
+    record_entry_date = models.CharField(max_length=255,null=False)
